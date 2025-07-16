@@ -38,7 +38,6 @@ function updateHorloge() {
       sonnerie.play().catch(e => console.warn("Son bloqué :", e));
       alarmeDéjàDéclenchée = true;
     }
-    console.log("L'alarme a sonné !");
   }
 }
 
@@ -51,7 +50,6 @@ if (!btn.dataset.listenerAdded) {
     sonnerie.pause();
     sonnerie.currentTime = 0;
     alarmeDéjàDéclenchée = false;
-    console.log("L'alarme a été désactivée");
   });
   btn.dataset.listenerAdded = "true";
 }
