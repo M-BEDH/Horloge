@@ -23,8 +23,8 @@ background: #091921;
 
 .horloge
 {
-width: 350px;
-height: 350px;
+width: 300px;
+height: 300px;
 display: flex;
 justify-content: center;
 align-items: center;
