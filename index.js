@@ -57,7 +57,7 @@ if (!btn.dataset.listenerAdded) {
 // Fonction pour mettre une alerte à la création de l'alarme
 const inputAlarme = document.getElementById("alarmInput");
 
-inputAlarme.addEventListener("change", () => {
+inputAlarme.addEventListener("input", () => {
   if (inputAlarme.value) {
     alert("Alarme créée pour " + inputAlarme.value);
   }
