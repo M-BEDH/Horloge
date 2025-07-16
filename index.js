@@ -1,5 +1,5 @@
   let alarmeDéjàDéclenchée = false;
-  const sonnerie = new Audio("sound/alarm.wav");
+  const sonnerie = new Audio("sound/bird.wav");
   sonnerie.loop = true;
 
 function updateHorloge() {
