@@ -1,4 +1,4 @@
-  let alarmeDéjàDéclenchée = false;
+  let alarmStart = false;
   const sonnerie = new Audio("sound/bird.wav");
   sonnerie.loop = true;
 
@@ -34,9 +34,9 @@ function updateHorloge() {
     
     // ici in sere la sonnerie (dossier soud - fichier BeepTimer)
     
-    if (!alarmeDéjàDéclenchée) {
+    if (!alarmStart) {
       sonnerie.play().catch(e => console.warn("Son bloqué :", e));
-      alarmeDéjàDéclenchée = true;
+      alarmStart = true;
     }
   }
 }
@@ -49,8 +49,8 @@ if (!btn.dataset.listenerAdded) {
     
     sonnerie.pause();
     sonnerie.currentTime = 0;
-    alarmeDéjàDéclenchée = false;
-    alert('l\'alarme à été désactivée')
+    alarmStart = false;
+    alert('l\'alarme a été désactivée')
   });
   btn.dataset.listenerAdded = "true";
 }
