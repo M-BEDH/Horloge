@@ -50,6 +50,7 @@ if (!btn.dataset.listenerAdded) {
     sonnerie.pause();
     sonnerie.currentTime = 0;
     alarmeDéjàDéclenchée = false;
+    alert('l\'alarme à été désactivée')
   });
   btn.dataset.listenerAdded = "true";
 }
