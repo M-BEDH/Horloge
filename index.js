@@ -54,6 +54,15 @@ if (!btn.dataset.listenerAdded) {
   btn.dataset.listenerAdded = "true";
 }
 
+// Fonction pour mettre une alerte à la création de l'alarme
+const inputAlarme = document.getElementById("alarmInput");
+
+inputAlarme.addEventListener("change", () => {
+  if (inputAlarme.value) {
+    alert("Alarme créée pour " + inputAlarme.value);
+  }
+});
+
 // Lancer l'horloge
 updateHorloge();
 setInterval(updateHorloge, 1000);
