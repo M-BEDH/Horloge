@@ -1,6 +1,13 @@
   let alarmStart = false;
   const sonnerie = new Audio("sound/bird.wav");
   sonnerie.loop = true;
+  const inputAlarme = document.getElementById("alarmInput");
+  const alarmStorageKey = "horloge.alarmTime";
+  const savedAlarmTime = localStorage.getItem(alarmStorageKey);
+
+  if (savedAlarmTime && /^([01]\d|2[0-3]):[0-5]\d$/.test(savedAlarmTime)) {
+    inputAlarme.value = savedAlarmTime;
+  }
 
 function updateHorloge() {
   const date = new Date();
@@ -28,7 +35,7 @@ function updateHorloge() {
   document.getElementById('sc').style.transform = `rotate(${secRotation}deg)`;
   
   // Vérifie l'heure d'alarme
-  const alarmTime = document.querySelector('input').value;
+  const alarmTime = inputAlarme.value;
   const currentTime = `${hrStr}:${mnStr}`;
   if (currentTime === alarmTime) {
     
@@ -45,7 +52,8 @@ function updateHorloge() {
 const btn = document.querySelector('button');
 if (!btn.dataset.listenerAdded) {
   btn.addEventListener("click", () => {
-    document.querySelector('input').value = "";
+    inputAlarme.value = "";
+    localStorage.removeItem(alarmStorageKey);
     
     sonnerie.pause();
     sonnerie.currentTime = 0;
@@ -56,11 +64,12 @@ if (!btn.dataset.listenerAdded) {
 }
 
 // Fonction pour mettre une alerte à la création de l'alarme
-const inputAlarme = document.getElementById("alarmInput");
-
 inputAlarme.addEventListener("input", () => {
   if (inputAlarme.value) {
+    localStorage.setItem(alarmStorageKey, inputAlarme.value);
     alert("Alarme créée pour " + inputAlarme.value);
+  } else {
+    localStorage.removeItem(alarmStorageKey);
   }
 });
 
