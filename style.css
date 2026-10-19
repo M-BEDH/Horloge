@@ -15,17 +15,18 @@ box-sizing: border-box;
 
 body {
 display: flex;
-justify-content: center;
+justify-content: right;
 align-items: center;
-min-height: 100vh;
+min-height: 45vh;
 background: #091921;
 }
 
 section {
-padding: 2rem;
+padding: 1rem;
 display: flex;
-width: 60%;
-border: 10px #758b8d ridge;
+/* width: 60%; */
+width: 33%;
+border: 8px #758b8d ridge;
 flex-direction: row;
 flex-wrap: wrap;
 justify-content: center;
